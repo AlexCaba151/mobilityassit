@@ -28,7 +28,7 @@ export default function Home() {
             </Link>
           </nav>
           <Button asChild className="bg-sky-600 hover:bg-sky-700">
-            <Link href="/form">Solicitar Ayuda</Link>
+            <Link href="/form">Solicitar Evaluacion </Link>
           </Button>
         </div>
       </header>
@@ -39,13 +39,13 @@ export default function Home() {
           <div className="container grid md:grid-cols-2 gap-8 items-center">
             <div className="space-y-6">
               <h1 className="text-4xl md:text-5xl font-bold text-sky-900 leading-tight">
-                Ayudando a mejorar la movilidad de nuestra comunidad
+                Ayudando a mejorar la movilidad
               </h1>
               <p className="text-lg text-sky-800">
-                Conectamos a miembros de la iglesia con dispositivos de movilidad para mejorar su calidad de vida.
+              Ofrecer asistencia a los miembros de La Iglesia de Jesucristo de los Santos de los Últimos Días que necesitan dispositivos de movilidad. Antes de recibir una silla de ruedas, los solicitantes deben pasar por una evaluación. Tras la evaluación, se les brindará acceso a un catálogo de opciones accesibles para restaurar su independencia y esperanza, siguiendo el ejemplo de amor y servicio de Jesucristo.
               </p>
               <blockquote className="border-l-4 border-sky-300 pl-4 italic text-sky-700">
-                "Consolaos, consolaos, pueblo mío, dice vuestro Dios." — Isaías 40:1
+                "Cada alma tiene un valor infinito ante Dios." — Presidente Russell M. Nelson
               </blockquote>
               <div className="flex flex-wrap gap-4">
                 <Button asChild className="bg-sky-600 hover:bg-sky-700">
@@ -70,25 +70,24 @@ export default function Home() {
         {/* Services Section */}
         <section className="py-16 bg-white">
           <div className="container">
-            <h2 className="text-3xl font-bold text-center text-sky-900 mb-12">Nuestros Servicios</h2>
+            <h2 className="text-3xl font-bold text-center text-sky-900 mb-12">Pasos a seguir</h2>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="bg-sky-50 p-6 rounded-lg shadow-sm border border-sky-100 text-center">
                 <div className="bg-sky-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Wheelchair className="h-8 w-8 text-sky-600" />
                 </div>
-                <h3 className="text-xl font-semibold text-sky-800 mb-2">Dispositivos de Movilidad</h3>
+                <h3 className="text-xl font-semibold text-sky-800 mb-2">Llenar formulario en linea</h3>
                 <p className="text-sky-700">
-                  Ofrecemos una variedad de sillas de ruedas y otros dispositivos de movilidad para diferentes
-                  necesidades.
+                  Completar el formulario de solicitud con información personal y necesidades específicas para recibir una evaluación de parte de un personal certificado.
                 </p>
               </div>
               <div className="bg-sky-50 p-6 rounded-lg shadow-sm border border-sky-100 text-center">
                 <div className="bg-sky-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Heart className="h-8 w-8 text-sky-600" />
                 </div>
-                <h3 className="text-xl font-semibold text-sky-800 mb-2">Apoyo Comunitario</h3>
+                <h3 className="text-xl font-semibold text-sky-800 mb-2">Identificar dispositivos de movilidad</h3>
                 <p className="text-sky-700">
-                  Conectamos a miembros de la comunidad para brindar apoyo y asistencia continua.
+                  Al completar la evaluacion, se identifica el dispositivo que se adapte mejor a las necesidades de la persona solicitante y su entorno.
                 </p>
               </div>
               <div className="bg-sky-50 p-6 rounded-lg shadow-sm border border-sky-100 text-center">
@@ -97,7 +96,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-semibold text-sky-800 mb-2">Entrega a Domicilio</h3>
                 <p className="text-sky-700">
-                  Coordinamos la entrega de dispositivos directamente a su hogar para mayor comodidad.
+                  Coordinar la entrega de dispositivos directamente a su hogar para mayor comodidad.
                 </p>
               </div>
             </div>
@@ -108,9 +107,9 @@ export default function Home() {
         <section id="about" className="py-16 bg-sky-50">
           <div className="container">
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl font-bold text-sky-900 mb-6">Acerca de Nuestra Misión</h2>
+              <h2 className="text-3xl font-bold text-sky-900 mb-6">Acerca de</h2>
               <p className="text-lg text-sky-800 mb-6">
-                Nuestra misión es servir a los miembros de la iglesia que enfrentan desafíos de movilidad,
+                Servir a los miembros de la iglesia que enfrentan desafíos de movilidad,
                 proporcionándoles los dispositivos que necesitan para participar plenamente en la vida familiar,
                 comunitaria y espiritual.
               </p>
@@ -118,7 +117,7 @@ export default function Home() {
                 "Llevad los unos las cargas de los otros, y cumplid así la ley de Cristo." — Gálatas 6:2
               </blockquote>
               <Button asChild className="bg-sky-600 hover:bg-sky-700">
-                <Link href="/form">Únete a Nuestra Misión</Link>
+                <Link href="/form">Solicitar evaluación</Link>
               </Button>
             </div>
           </div>
@@ -177,7 +176,7 @@ export default function Home() {
                 </div>
                 <span className="font-bold text-xl">MobilityAssist</span>
               </Link>
-              <p className="text-sky-100">Ayudando a mejorar la movilidad y calidad de vida de nuestra comunidad.</p>
+              <p className="text-sky-100">''Llevad los unos las cargas de los otros, y cumplid así la ley de Cristo.'' — Gálatas 6:2</p>
             </div>
             <div>
               <h3 className="font-semibold text-lg mb-4">Contacto</h3>
