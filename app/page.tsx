@@ -59,7 +59,7 @@ export default function Home() {
             <div className="relative h-64 md:h-auto">
               <div className="absolute inset-0 bg-sky-200 rounded-lg -rotate-3"></div>
               <img
-                src="/wheelchair-hero.jpg?height=400&width=600"
+                src="/wheelchair-hero.webp?height=400&width=600"
                 alt="Persona en silla de ruedas siendo asistida"
                 className="relative rounded-lg shadow-lg w-full h-full object-cover rotate-2"
               />
