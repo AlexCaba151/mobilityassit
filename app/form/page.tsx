@@ -62,11 +62,52 @@ export default function FormPage() {
     }
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // In a real application, you would handle the form submission here
-    setFormSubmitted(true)
-  }
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    try {
+      // Preparar los datos para enviar
+      const formDataToSend = {
+        ...formData,
+        medicalDocuments: formData.medicalDocuments 
+          ? formData.medicalDocuments.map(file => file.name) 
+          : null,
+        photos: formData.photos 
+          ? formData.photos.map(file => file.name) 
+          : null,
+      };
+      
+      // Mostrar un mensaje de carga
+      alert("Enviando formulario, por favor espere...");
+      
+      // Enviar los datos al endpoint
+      const response = await fetch('/api/send-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formDataToSend),
+      });
+      
+      const result = await response.json();
+      
+      if (!response.ok) {
+        throw new Error('Error al enviar el formulario');
+      }
+      
+      // Si hay una URL de vista previa, abrirla en una nueva pestaña
+      if (result.previewUrl) {
+        window.open(result.previewUrl, '_blank');
+        console.log('URL de vista previa del correo:', result.previewUrl);
+      }
+      
+      // Mostrar el mensaje de éxito
+      setFormSubmitted(true);
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Hubo un error al enviar el formulario. Por favor, inténtelo de nuevo.');
+    }
+  };
 
   const nextStep = () => {
     setCurrentStep((prev) => prev + 1)
@@ -262,10 +303,10 @@ export default function FormPage() {
                           />
                         </div>
                         <div className="space-y-2">
-                          <Label htmlFor="zipCode">Código Postal</Label>
+                          <Label htmlFor="zipCode">Estaca</Label>
                           <Input
                             id="zipCode"
-                            placeholder="Código Postal"
+                            placeholder="Estaca"
                             value={formData.zipCode}
                             onChange={handleInputChange}
                             required
@@ -330,27 +371,9 @@ export default function FormPage() {
                         </RadioGroup>
                       </div>
 
-                      <div className="space-y-2">
-                        <Label htmlFor="deviceSpecification">Especificaciones del Dispositivo</Label>
-                        <Select
-                          value={formData.deviceSpecification}
-                          onValueChange={(value) => handleSelectChange("deviceSpecification", value)}
-                        >
-                          <SelectTrigger>
-                            <SelectValue placeholder="Seleccione una opción" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="standard">Estándar</SelectItem>
-                            <SelectItem value="lightweight">Ligero</SelectItem>
-                            <SelectItem value="electric">Eléctrico</SelectItem>
-                            <SelectItem value="pediatric">Pediátrico</SelectItem>
-                            <SelectItem value="bariatric">Bariátrico</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
 
                       <div className="space-y-2">
-                        <Label htmlFor="duration">Duración Estimada de Uso</Label>
+                        <Label htmlFor="duration">Tiempo Estimado de su Condicion</Label>
                         <Select
                           value={formData.duration}
                           onValueChange={(value) => handleSelectChange("duration", value)}
@@ -359,10 +382,10 @@ export default function FormPage() {
                             <SelectValue placeholder="Seleccione una opción" />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="temporary">Temporal (menos de 3 meses)</SelectItem>
-                            <SelectItem value="short">Corto plazo (3-6 meses)</SelectItem>
-                            <SelectItem value="medium">Mediano plazo (6-12 meses)</SelectItem>
-                            <SelectItem value="long">Largo plazo (más de 1 año)</SelectItem>
+                            <SelectItem value="temporary">menos de 3 meses</SelectItem>
+                            <SelectItem value="short">3-6 meses</SelectItem>
+                            <SelectItem value="medium">6-12 meses</SelectItem>
+                            <SelectItem value="long">más de 1 año</SelectItem>
                             <SelectItem value="permanent">Permanente</SelectItem>
                           </SelectContent>
                         </Select>
@@ -526,7 +549,7 @@ export default function FormPage() {
                             <div className="text-muted-foreground">Especificaciones:</div>
                             <div className="capitalize">{formData.deviceSpecification || "No especificado"}</div>
 
-                            <div className="text-muted-foreground">Duración estimada:</div>
+                            <div className="text-muted-foreground">Tiempo estimado de Condicion:</div>
                             <div className="capitalize">{formData.duration || "No especificado"}</div>
 
                             <div className="text-muted-foreground">Información adicional:</div>
