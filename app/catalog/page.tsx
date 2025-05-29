@@ -404,7 +404,7 @@ export default function CatalogPage() {
                             <div className="flex justify-end">
                               {item.availability && (
                                 <Button asChild className="bg-sky-600 hover:bg-sky-700">
-                                  <Link href="/form">Solicitar</Link>
+                                
                                 </Button>
                               )}
                             </div>
@@ -412,7 +412,7 @@ export default function CatalogPage() {
                         </Dialog>
                         {item.availability && (
                           <Button asChild className="bg-sky-600 hover:bg-sky-700">
-                            <Link href="/form">Solicitar</Link>
+                          
                           </Button>
                         )}
                       </CardFooter>
